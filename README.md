@@ -32,6 +32,7 @@ This integration connects your EcoWater Wi-Fi-enabled water softener to Home Ass
 | **Salt & Rock** | Salt level %, days until out of salt, estimated empty date, salt type, rock removed |
 | **Regeneration** | Status (Standby / Regenerating / Scheduled), days since last, estimated last date |
 | **Diagnostics** | Device online status, Wi-Fi signal strength, last cloud sync timestamp |
+| **Reverse Osmosis** | Water dispensed, daily average, filter life remaining, TDS removal, replace filter / membrane / batteries alerts |
 
 Entities are created dynamically — only capabilities your specific device reports will appear.
 
@@ -40,10 +41,13 @@ Entities are created dynamically — only capabilities your specific device repo
 | Backend | Region | OEM model | Display model | Status |
 |---|---|---|---|---|
 | Ayla | US | EWS3500 | EWS ECR3700R30 | Live tested |
+| Ayla | US | SHERO | HERO-385Plus (reverse osmosis) | Implemented from a live fixture, not yet tested in Home Assistant |
 | Ayla | EU | — | — | Endpoint implemented, untested |
 | HydroLink | — | — | — | Not supported |
 
 Other Ayla-connected EcoWater devices reporting an EWS* OEM model may work, but only EWS3500/ECR3700R30 has been live tested.
+
+Reverse osmosis monitors sleep between cloud check-ins, about once a day, so readings update daily and no online status entity is created. Use the source last updated sensor to see the latest check-in.
 
 **Have a different model?** We'd love your help — see [Submitting a Device Fixture](#submitting-a-device-fixture) below.
 
