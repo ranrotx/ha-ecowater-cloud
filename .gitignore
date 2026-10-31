@@ -25,3 +25,7 @@ build/
 .coverage.*
 coverage.xml
 htmlcov/
+
+# Local Home Assistant test instance
+config/*
+!config/configuration.yaml
